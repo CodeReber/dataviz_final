@@ -1,15 +1,30 @@
-import requests
-from pprint import pprint
+from flask import Flask, jsonify, request, redirect, url_for, render_template
 
-parameters = {
-    "lat": '39.95',
-    "lon": '-75.16',
-    "limit": '10'
-}
+app = Flask(__name__)
 
-url = "https://app.climate.azavea.com/api/city/nearest/"
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-response = requests.get(url, params=parameters, headers={'Authorization': 'Token 5897db64d0634bc43bfbfffb738fd1b7ed0104da'})
+@app.route('/clean')
+def clean():
+    return render_template('clean.html')
 
+@app.route('/ml')
+def ml():
+    return render_template('ml.html')
 
-pprint(response.json())
+@app.route('/map')
+def map():
+    return render_template('map.html')
+
+@app.route('/graphs')
+def graphs():
+    return render_template('graphs.html')
+
+@app.route('/results')
+def results():
+    return render_template('results.html')
+
+if __name__ == "__main__":
+    app.run(debug=True)
