@@ -8,6 +8,23 @@
 </head>
 <body>
 {% include 'nav.html'%} 
-<h2>Maybe put some javascript onclick events in here on buttons to answer questions about the polarbears</h2>
+<div class="login">
+	<h1>Predict CO2 Emission of Vehicles</h1>
+     <h3> Enter the following values to predict the CO2 emission from the vehicle</h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="enginesize" placeholder="Engine Size" required="required" />
+        <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
+		<input type="text" name="fuel" placeholder="Fuel" required="required" />
+
+        <button type="submit" class="btn">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
 </body>
 </html>
