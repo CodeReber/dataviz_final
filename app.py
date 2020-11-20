@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, request, redirect, url_for, render_template
 import numpy as np
-import pickle
 from sqlalchemy import create_engine, func
 import secrets
 
@@ -13,7 +12,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = conn
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 db = SQLAlchemy(app)
-model = pickle.load(open('model.pkl', 'rb'))
+
 
 class pb_dens_1910_2018(db.Model):
     record = db.Column(db.Integer, primary_key=True)
@@ -189,7 +188,7 @@ def predict():
     '''
     int_features = [float(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
-    prediction = model.predict(final_features) #this is connected to model.pkl
+    #prediction = model.predict(final_features) #this is connected to model.pkl
 
     output = round(prediction[0], 2)
 
