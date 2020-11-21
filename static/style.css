@@ -79,6 +79,9 @@ button:hover {
 opacity:1;
     }
 
+option {
+    color:rgba(39, 37, 37, 0.938)
+}
     /* Add padding to container elements */
 .container {
     padding: 16px;
@@ -109,7 +112,8 @@ opacity:1;
         background: #4CAF50;
         cursor: pointer;
     }
-      
+
+
 
 
 
