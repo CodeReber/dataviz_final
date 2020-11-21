@@ -90,6 +90,10 @@ def graph():
 def result():
     return render_template('result.html')
 
+@app.route('/data')
+def data():
+    return render_template('data.html')
+
 @app.route('/api/climate')
 def climate():
     results = db.session.query().with_entities(climate_compile.year_month,climate_compile.land_avg_temp,climate_compile.land_max_temp,\

@@ -1,0 +1,25 @@
+{% extends "layout.html"%}
+{% block title %} 
+Home Page
+{% endblock %}
+<!-- link to codereb -->
+
+{%block body%}
+<br><br><br>
+<body>
+    <span>Choose a Table</span>
+    <div class="data">
+        <select id="selDataset"></select>
+    </div>
+    <table>
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+</body>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+<script src="{{ url_for('static', filename='js/data.js') }}"></script>
+{%endblock %}
