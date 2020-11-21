@@ -10,6 +10,7 @@ Result
     <span class="w3-xxlarge w3-hide-large w3-hide-medium">Predict</span><br>
     <span class="w3-xlarge">Enter the following values to predict ...</span>
     
+    
     <div class="slidecontainer">
         <p>Custom range slider:</p>
         <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
@@ -19,16 +20,23 @@ Result
     <div class="slidecontainer">
         <p>Custom range slider:</p>
         <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-    <p><a href=# class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity:0.2  w3-hover-opacity-off">Predict Now</a></p>
-  
+    <p><a type="submit" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity:0.2  w3-hover-opacity-off">Predict Now</a></p>
     </div> 
+    
   </header>
-     <!-- Main Input For Receiving Query to our ML
+     Main Input For Receiving Query to our ML
      <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="enginesize" placeholder="Engine Size" required="required" />
-        <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
-		<input type="text" name="fuel" placeholder="Fuel" required="required" />
+    	<input type="text" name="t1" placeholder="T1" required="required" />
+        <input type="text" name="t2" placeholder="T2" required="required" />
+        <input type="text" name="t3" placeholder="T3" required="required" />
+        <input type="text" name="t4" placeholder="T4" required="required" />
+        <input type="text" name="t5" placeholder="T5" required="required" />
+        <input type="text" name="t6" placeholder="T6" required="required" />
+        <input type="text" name="t7" placeholder="T7" required="required" />
+        <input type="text" name="t8" placeholder="T8" required="required" />
+        <input type="text" name="t9" placeholder="T9" required="required" />
 
         <button type="submit" class="btn">Predict</button>
-    </form> -->
+    </form>
+    {{ prediction_text }}
 {%endblock %}

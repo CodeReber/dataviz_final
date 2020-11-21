@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, redirect, url_for, render_template
 import numpy as np
 from sqlalchemy import create_engine, func
 import secrets
+import pickle
 #import os
 
 from flask_sqlalchemy import SQLAlchemy
@@ -14,6 +15,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = conn
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 db = SQLAlchemy(app)
+model = pickle.load(open('rf_rsf2.pkl', 'rb'))
 
 
 class pb_dens_1910_2018(db.Model):
@@ -88,7 +90,9 @@ def graph():
 
 @app.route('/result')
 def result():
+
     return render_template('result.html')
+
 
 @app.route('/data')
 def data():
@@ -194,11 +198,11 @@ def predict():
     '''
     int_features = [float(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
-    #prediction = model.predict(final_features) #this is connected to model.pkl
+    prediction = model.predict(final_features) #this is connected to model.pkl
 
     output = round(prediction[0], 2)
-
-    return render_template('results.html', prediction_text='CO2 Emission of the vehicle is :{}'.format(output))
+    
+    return render_template('result.html', prediction_text='The output is :{}'.format(output))
 
 if __name__ == "__main__":
     app.run(debug=True)
