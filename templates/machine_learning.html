@@ -4,18 +4,37 @@ Home Page
 {% endblock %}
 
 {%block body%}
-<br>
-<br>
-<h1>Operation Polarbear</h1>
-<div id=colab1>
-<script src="https://gist.github.com/CodeReber/36410a7c8405140bebda520045a501a7.js"></script>
+<style>
+body {
+    background-position: center;
+    background-size: cover;
+    background-image: url("https://polar-ice.org/wp-content/uploads/2016/01/banner_31.jpg");
+    min-height: 100%;
+}
+div.transbox {
+    background-color: rgb(255, 255, 255);
+    margin: 0%;
+    opacity: 0.75;
+}
+ </style>
+
+<br><br><br>
+<div class="transbox">
+    <h1 style="padding-left:50px">Operation Polarbear</h1>
 </div>
-<h1>Den ML</h1>
-<div id=colab2>
+<div style="padding:50px" id=colab1>
+    <script src="https://gist.github.com/CodeReber/36410a7c8405140bebda520045a501a7.js"></script>
+</div>
+<div class="transbox">
+    <h1 style="padding-left:50px">Den Machine Learning</h1>
+</div>
+<div style="padding:50px" id=colab2>
 <script src="https://gist.github.com/CodeReber/5f83388566e151d3af6675addd12df94.js"></script>
 </div>
-<h1>Den Location</h1>
-<div id=colab3>
+<div class="transbox">
+    <h1 style="padding-left:50px">Den Location</h1>
+</div>
+<div style="padding:50px" id=colab3>
 <script src="https://gist.github.com/CodeReber/2f06a3018caffb21a4b812d63acc6ed2.js"></script>
 </div>
 {%endblock %}
