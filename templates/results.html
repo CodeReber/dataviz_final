@@ -1,0 +1,110 @@
+{% extends "layout.html"%}
+{% block title %} 
+Result
+{% endblock %}
+
+{%block body%}
+<style>
+    body {
+    background-position: center;
+    background-size: cover;
+    background-image: url("https://images.dailyhive.com/20191206124544/shutterstock_104815631.jpg");
+    min-height: 100%;
+}
+
+td{
+  text-align: center;
+}
+th{
+  text-align: center;
+}
+
+.slidecontainer {
+  width: 80%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: rgb(16, 111, 134);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+</style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <div style="padding-top:100px;padding-left:250px"><br><br>
+    <span class="w3-jumbo w3-hide-small">Predict</span>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Predict</span><br>
+    <span class="w3-xlarge">Enter the following values to predict ...</span>
+    
+     <form method="POST" action="{{url_for('predict')}}" role="form">
+        <div class="slidecontainer">
+            <p>Land Temperature:</p>
+            <input type="range" min="0" max="1" step=".01" class="slider" id="tempRange" name="tempRange">
+            <span id="tempspan">.5</span>
+        </div>
+        <div class="slidecontainer">
+            <p>Ocean Temperature:</p>
+            <input type="range" min="0" max="1" step=".01" class="slider" id="oceanRange" name="oceanRange">
+            <span id="oceanspan">.5</span>
+        </div>
+        <div class="slidecontainer">
+            <p>Global CO2 Emissions:</p>
+            <input type="range" min="0" max="1" step=".01" class="slider" id="co2Range" name="co2Range">
+            <span id="co2span">.5</span>
+        </div>
+        <div class="slidecontainer">
+            <p>Sea Ice Extent:</p>
+            <input type="range" min="0" max="1" step=".01" class="slider" id="iceRange" name="iceRange">
+            <span id="icespan">.5</span>
+        </div>
+        <button type="submit" id="predict" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity:0.2  w3-hover-opacity-off">Predict Now</button>
+     </form> 
+     <br><br>
+    <div class=row>
+    <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+      <table class="table table-striped">
+        <tr><th>Habitat</th></tr>
+        <tr><td>{{habitat_output}}</td></tr>
+      </table>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+      <table  class="table table-striped">
+        <tr><th>Mobility</th></tr>
+        <tr><td>{{mobility_output}}</td></tr>
+      </table>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+      <table  class="table table-striped">
+        <tr><th>Den Location</th></tr>
+        <tr><td>{{dens_output}}</td></tr>
+      </table>
+    </div></div>
+    
+        
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="{{ url_for('static', filename='js/results.js') }}"></script>
+{%endblock %}

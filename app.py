@@ -2,7 +2,9 @@ from flask import Flask, jsonify, request, redirect, url_for, render_template
 import numpy as np
 from sqlalchemy import create_engine, func
 import secrets
-#import os
+import os
+import pickle
+from sklearn.ensemble import RandomForestClassifier
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -88,7 +90,7 @@ def graph():
 
 @app.route('/result')
 def result():
-    return render_template('result.html')
+    return render_template('results.html')
 
 @app.route('/data')
 def data():
@@ -187,18 +189,28 @@ def dens():
 
     return {'results': aggrArray}
 
-@app.route('/predict',methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
-    '''
-    For rendering results on HTML GUI
-    '''
-    int_features = [float(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
-    #prediction = model.predict(final_features) #this is connected to model.pkl
+    print("AM I WORKING")
+    habitat_model = pickle.load(open("machine_learning/models/rf_rsf2.pkl","rb"))
+    mobility_model = pickle.load(open("machine_learning/models/knn_mob.pkl","rb"))
+    dens_model = pickle.load(open("machine_learning/models/rf_loc.pkl","rb"))
+       
+    
+    final_features = [np.array([float(request.form['tempRange']),float(request.form['oceanRange']),float(request.form['co2Range']), float(request.form['iceRange'])])]
+    habitat = habitat_model.predict(final_features)
+    mobility = mobility_model.predict(final_features)
+    dens = dens_model.predict(final_features)
 
-    output = round(prediction[0], 2)
+    habitat_output = int(habitat[0])
+    mobility_output = str(mobility[0])
+    dens_output = int(dens[0])
 
-    return render_template('results.html', prediction_text='CO2 Emission of the vehicle is :{}'.format(output))
+
+    return render_template('results.html', habitat_output=habitat_output,mobility_output=mobility_output,dens_output=dens_output)
+
+
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
