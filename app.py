@@ -15,7 +15,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = conn
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 db = SQLAlchemy(app)
-model = pickle.load(open('model.pkl', 'rb'))
+model = pickle.load(open('rf_rsf2.pkl', 'rb'))
 
 class pb_dens_1910_2018(db.Model):
     record = db.Column(db.Integer, primary_key=True)
