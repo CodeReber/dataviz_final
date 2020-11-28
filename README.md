@@ -15,7 +15,7 @@ The team worked on a final project for a bootcamp where they showcased the skill
 
 The architecture of the application was to use raw csv data file collected from various sources. Have those file sitting in a S3 bucket. The data was then cleaned and manipluated leveraging Jupyter Notebooks as well as Google Colab. Once cleaned and shaped it was sent to a AWS RDS database where the PGAdmin tool was used to create the needed tables, the data was then used by the Tableau analytics tool to create Maps and Graphs as well as used in the training of the Machine learning Model.
 
-![](Images/wireframe.png)
+![](Images/wireframe.PNG)
 
 The ground work for the web application was layed using flask, Python, Javascript, HTML
 
