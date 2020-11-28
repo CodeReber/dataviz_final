@@ -72,10 +72,6 @@ def index():
 def about():
     return render_template('about.html')
 
-@app.route('/cleaning')
-def cleaning():
-    return render_template('cleaning.html')
-
 @app.route('/machine_learning')
 def machine_learning():
     return render_template('machine_learning.html')
