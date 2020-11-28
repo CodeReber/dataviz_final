@@ -26,7 +26,7 @@ The Map and Charting was done using the popular data analytics tool Tableau wher
 ![](Images/fl1.PNG)
 The data was pull from the AWS RDS database using SqlAlchemy.
 
-![](Images/cl1.PNG)
+![](Images/cl1.png)
 
 The ML was done with Sklearn,Pandas,Numpy, and Pickle Python libraries, Jupyter Notebook used to graphically analyze the data. The results from this analyzes was exported to the frontend of the application using javascript.
 
