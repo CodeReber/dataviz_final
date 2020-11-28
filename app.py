@@ -68,6 +68,10 @@ class climate_compile(db.Model):
 def index():
     return render_template('index.html')
 
+@app.route('/testing')
+def testing():
+    return render_template('machine_learning2.html')
+
 @app.route('/about')
 def about():
     return render_template('about.html')
@@ -191,7 +195,8 @@ def predict():
     habitat_model = pickle.load(open("machine_learning/models/rf_rsf2.pkl","rb"))
     mobility_model = pickle.load(open("machine_learning/models/knn_mob.pkl","rb"))
     dens_model = pickle.load(open("machine_learning/models/rf_loc.pkl","rb"))
-       
+
+
     
     final_features = [np.array([float(request.form['tempRange']),float(request.form['oceanRange']),float(request.form['co2Range']), float(request.form['iceRange'])])]
     habitat = habitat_model.predict(final_features)
