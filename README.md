@@ -23,7 +23,7 @@ The ground work for the web application was layed using flask, Python, Javascrip
 
 The Map and Charting was done using the popular data analytics tool Tableau where it was set to the Tableau public could and then imported into the application.
 
-![](Images/fl1.PNG)
+![](Images/fl1.png)
 The data was pull from the AWS RDS database using SqlAlchemy.
 
 ![](Images/cl1.png)
