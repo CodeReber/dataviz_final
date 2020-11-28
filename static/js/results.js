@@ -9,17 +9,17 @@ var icespan=d3.select("#icespan");
 
 
 tempRange.on("change", ()=>{
-    tempspan.text(tempRange.property('value')) 
+    tempspan.text(Math.round(parseFloat(tempRange.property('value'))*19+1)) 
 });
 
 oceanRange.on("change", ()=>{
-    oceanspan.text(oceanRange.property('value')) 
+    oceanspan.text(Math.round((parseFloat(oceanRange.property('value'))*200+300))) 
 });
 co2Range.on("change", ()=>{
-    co2span.text(co2Range.property('value')) 
+    co2span.text(Math.round(parseFloat(co2Range.property('value'))*19+1)) 
 });
 iceRange.on("change", ()=>{
-    icespan.text(iceRange.property('value')) 
+    icespan.text(Math.round(parseFloat(iceRange.property('value'))*19+1)) 
 });
 
 

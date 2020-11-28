@@ -191,19 +191,37 @@ def predict():
     habitat_model = pickle.load(open("machine_learning/models/rf_rsf2.pkl","rb"))
     mobility_model = pickle.load(open("machine_learning/models/knn_mob.pkl","rb"))
     dens_model = pickle.load(open("machine_learning/models/rf_loc.pkl","rb"))
-       
+
+    temp = round(float(request.form['tempRange'])*19+1)
+    ocean = round(float(request.form['oceanRange'])*200+300)
+    co2 = round(float(request.form['co2Range'])*19+1) 
+    ice = round(float(request.form['iceRange'])*19+1)
+
     
     final_features = [np.array([float(request.form['tempRange']),float(request.form['oceanRange']),float(request.form['co2Range']), float(request.form['iceRange'])])]
     habitat = habitat_model.predict(final_features)
     mobility = mobility_model.predict(final_features)
     dens = dens_model.predict(final_features)
 
-    habitat_output = int(habitat[0])
-    mobility_output = str(mobility[0])
-    dens_output = int(dens[0])
+    if int(habitat[0])== 3:
+        habitat_output= "Living My Best Life"
+    elif int(habitat[0])== 2:
+        habitat_output= "Just Maintaining"
+    else:
+        habitat_output= "The Struggle is Real"
+
+    if str(mobility[0])== "high":
+        mobility_output= "Super Mover"
+    elif str(mobility[0])== "mid":
+        mobility_output= "I Get Around..."
+    else:
+        mobility_output= "Home Body"
 
 
-    return render_template('results.html', habitat_output=habitat_output,mobility_output=mobility_output,dens_output=dens_output)
+    dens_output = f"Zone {int(dens[0])}"
+
+
+    return render_template('results.html', habitat_output=habitat_output,mobility_output=mobility_output,dens_output=dens_output, temp=temp, ocean=ocean,co2=co2,ice=ice)
 
 
     

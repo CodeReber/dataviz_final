@@ -64,26 +64,29 @@ th{
         <div class="slidecontainer">
             <p>Land Temperature:</p>
             <input type="range" min="0" max="1" step=".01" class="slider" id="tempRange" name="tempRange">
-            <span id="tempspan">.5</span>
+            <span id="tempspan">10</span>
         </div>
         <div class="slidecontainer">
             <p>Ocean Temperature:</p>
             <input type="range" min="0" max="1" step=".01" class="slider" id="oceanRange" name="oceanRange">
-            <span id="oceanspan">.5</span>
+            <span id="oceanspan">400</span>
         </div>
         <div class="slidecontainer">
             <p>Global CO2 Emissions:</p>
             <input type="range" min="0" max="1" step=".01" class="slider" id="co2Range" name="co2Range">
-            <span id="co2span">.5</span>
+            <span id="co2span">10</span>
         </div>
         <div class="slidecontainer">
             <p>Sea Ice Extent:</p>
             <input type="range" min="0" max="1" step=".01" class="slider" id="iceRange" name="iceRange">
-            <span id="icespan">.5</span>
+            <span id="icespan">10</span>
         </div>
         <button type="submit" id="predict" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity:0.2  w3-hover-opacity-off">Predict Now</button>
      </form> 
-     <br><br>
+     <br><br><br>
+    <span>Your Selected Values</span><br>
+    <span>Land Temperature: {{temp}}    Ocean Temperature: {{ocean}}    Global CO2 Emissions: {{co2}}   Sea Ice Extent: {{ice}}</span><br><br>
+
     <div class=row>
     <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
       <table class="table table-striped">
