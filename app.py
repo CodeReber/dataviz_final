@@ -76,10 +76,6 @@ def about():
 def machine_learning():
     return render_template('machine_learning.html')
 
-@app.route('/testing')
-def testing():
-    return render_template('machine_learning3.html')
-
 @app.route('/map')
 def map():
     return render_template('map.html')
