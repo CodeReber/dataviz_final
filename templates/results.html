@@ -54,6 +54,7 @@ th{
 }
 </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
     <div style="padding-top:100px;padding-left:250px"><br><br>
     <span class="w3-jumbo w3-hide-small">Predict</span>
     <span class="w3-xxlarge w3-hide-large w3-hide-medium">Predict</span><br>
@@ -105,8 +106,6 @@ th{
     </div></div>
   </div>
     
-        
-  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script src="{{ url_for('static', filename='js/results.js') }}"></script>
 {%endblock %}
