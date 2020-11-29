@@ -81,7 +81,6 @@
 <!--==================================-->
 <!--=====Machine Learning Workflow====-->
 <!--==================================-->
-
 <br><br><br><br>
 <div class="transbox">
     <h1 style="padding-left:50px; padding-right: 50px;">Machine Learning Workflow</h1>
@@ -94,110 +93,142 @@
     </div>
 </div>
 
-<!--=======================================-->
-<!--===== Machine Resource Selection ======-->
-<!--=======================================-->
-
-
+<!--================================================-->
+<!--===== Machine Learning Resource Selection ======-->
+<!--================================================-->
 <div class="transbox">
-    <h1 style="padding-left:50px; padding-right: 50px;">Predicting Polar Bear Den Location</h1>
+    <h1 style="padding-left:50px; padding-right: 50px;">Predicting Polar Bear Habitat Selection</h1>
+</div>
+<div style="padding-top:50px; padding-right: 50px; padding-left: 50px">
+<div class="card-deck">
+    <div class="card bg-light mb-3 shadow">
+        <h5 class="card-header">Machine Learning Pipeline Overview</h5>
+        <div class="card-body">
+        <p class="card-text"> Resource Selection Function (RSF) is a measurement of how conducive the environment/habitat is for long-term survival. We generated a model to explore the impact of climate on polar bear selection of habitat<br>
+            
+            <ol>
+                <li>Import and clean the dataset</li>
+                <li>Inital steps (not shown): linear and logistic regression revealed very weak correlation</li>
+                <li>Converted RSF into categorical variable for low, mid, and high RSF values</li>
+                <li>Split data into training and testing data set (20% testing)
+                <li>Normalize quantitative data using MinMaxScalar</li>
+                <li><b>Random Forest:</b> Hypertuned random forest score 0.63; used model for prediction </li>
+            </ol>
+        <h5>Machine Learning Retrospective</h5>
+            <hr>
+            <p>The limited dataset proved difficult for identifying a direct correlation between climate and RSF values. Converted to categorical resulted in a fairly good model for predicting RSF based on climate. A neural network may provide a more accurate model. Initial analysis reveals that climate change (high temperature, high CO2 emissions, and low sea ice extent) result in low RSF values indicating either poolar bears inability to acclimate to temperature changes or decreases in optimal habitat.</p> 
+      </div>
+    </div>
+    <div class="card bg-light mb-3 shadow">
+        <h5 class="card-header">Google Colaboratory Notebook</h5>
+        <div class="card-body">
+        <script src="https://gist.github.com/lilstarhunter/be5c6f45f16455cb073997b305a827ee.js"></script>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--=======================================-->
+<!--===== Machine Learning Mobility =======-->
+<!--=======================================-->
+<div class="transbox">
+    <h1 style="padding-left:50px; padding-right: 50px;">Predicting Polar Bear Habitat Selection</h1>
 </div>
 <div style="padding-top:20px; padding-right: 50px; padding-left: 50px">
 <div class="card-deck">
     <div class="card bg-light mb-3 shadow">
         <h5 class="card-header">Machine Learning Pipeline Overview</h5>
         <div class="card-body">
-        <p class="card-text">By applying our k-means clustering we developed a model to use predict location of polar bear dens based on climate metrics. <br>
+        <p class="card-text"> Resource Selection Function (RSF) is a measurement of how conducive the environment/habitat is for long-term survival. We generated a model to explore the impact of climate on polar bear selection of habitat<br>
             
             <ol>
                 <li>Import and clean the dataset</li>
-                <li>Split data into training and testing data set (20% testing)</li>
+                <li>Inital steps (not shown): linear and logistic regression revealed very weak correlation</li>
+                <li>Converted RSF into categorical variable for low, mid, and high RSF values</li>
+                <li>Split data into training and testing data set (20% testing)
                 <li>Normalize quantitative data using MinMaxScalar</li>
-                <li><b>Multiple Linear Regression:</b> No correlation between climate metrics and den location</li>
-                <li><b>kNN:</b> Range of k values revealed n_neighbors = 5 higher accuracy (score = 0.2)</li>
-                <li><b>Random Forest:</b> Hypertuned random forest score 0.2; used model for prediction </li>
+                <li><b>Random Forest:</b> Hypertuned random forest score 0.63; used model for prediction </li>
             </ol>
         <h5>Machine Learning Retrospective</h5>
             <hr>
-            <p>The dataset hindered our ability to create a successful model when only assessing climate as a predictor of den & polar bear location. Previous models incorporated the month and year and resulted in a strong random forest model scoring 0.75. Based on app continuity, we chose to exclude month and year from our prediciton but future models should include this critical feature. </p> 
+            <p>The limited dataset proved difficult for identifying a direct correlation between climate and RSF values. Converted to categorical resulted in a fairly good model for predicting RSF based on climate. A neural network may provide a more accurate model. Initial analysis reveals that climate change (high temperature, high CO2 emissions, and low sea ice extent) result in low RSF values indicating either poolar bears inability to acclimate to temperature changes or decreases in optimal habitat.</p> 
       </div>
     </div>
-    <div class="card shadow">
-        <script src="https://gist.github.com/lilstarhunter/950e3952b71bc422debd1a34fa416399.js"></script>
+    <div class="card bg-light mb-3 shadow">
+        <h5 class="card-header">Google Colaboratory Notebook</h5>
+        <div class="card-body">
+        <script src="https://gist.github.com/lilstarhunter/be5c6f45f16455cb073997b305a827ee.js"></script>
+        </div>
     </div>
 </div>
 </div>
-
-
 
 <!--==================================-->
 <!--=====Machine Learning K-Means=====-->
 <!--==================================-->
 
-
 <div class="transbox">
     <h1 style="padding-left:50px; padding-right: 50px;">K-Means Labeling of Arctic Zones</h1>
 </div>
 <div style="padding:50px">
-<div class="card-deck">
+    <div class="card-deck">
+        <div class="card bg-light mb-3 shadow">
+            <h5 class="card-header">Unsupervised K-Means Clustering of Location Overview</h5>
+            <div class="card-body">
+                <p class="card-text">Utilize K-Means clustering to of latitudinal and longitudinal data for polar bear location from 2009 - 2016.<br>
+                <ol>
+                    <li>Import and clean the dataset -- remove null values, select relevant columns, remove outliers</li>
+                    <li>Plot coordinates onto a map for visualizing "zones" or k clusters</li>
+                    <li>Select k based on a high score with useful resolution for locating polar bears across a massive surface area.</li>
+                    <li>Create, train and fit the model based on k clusters using the 2009-2016 dataset</li>
+                    <li>Apply our model to the 1985-2016 polar bear dataset for final machine learning algorithms</li>
+                </ol>
+            </div>
+        </div>
+        <div class="card bg-light mb-3 shadow">
+            <img class="card-img" src="../static/bear_kmeans_clusters.gif">
+        </div>
+    </div>
+</div>
+<div style="padding-left:150px; padding-right: 150px" id=colab1>
     <div class="card bg-light mb-3 shadow">
-      
-        <h5 class="card-header">Unsupervised K-Means Clustering of Location Overview</h5>
-        <div class="card-body">
-        <p class="card-text">Utilize K-Means clustering to of latitudinal and longitudinal data for polar bear location from 2009 - 2016.<br>
-            
-            <ol>
-                <li>Import and clean the dataset -- remove null values, select relevant columns, remove outliers</li>
-                <li>Plot coordinates onto a map for visualizing "zones" or k clusters</li>
-                <li>Select k based on a high score with useful resolution for locating polar bears across a massive surface area.</li>
-                <li>Create, train and fit the model based on k clusters using the 2009-2016 dataset</li>
-                <li>Apply our model to the 1985-2016 polar bear dataset for final machine learning algorithms</li>
-            </ol>
-      </div>
+        <h5 class="card-header">Google Colaboratory Notebook</h5>
+        <script src="https://gist.github.com/lilstarhunter/1286959ab251721a3e73af1cf7d2751f.js"></script>
     </div>
-    <div class="card shadow">
-        
-          <img class="card-img" src="../static/bear_kmeans_clusters.gif">
-        <!-- <h5 class="card-title">Card title</h5> -->
-        <!-- <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p> -->
-    </div>
-</div>
-</div>
-<div style="padding-left:50px; padding-right: 50px" id=colab1>
-    <script src="https://gist.github.com/lilstarhunter/1286959ab251721a3e73af1cf7d2751f.js"></script>
 </div>
 
 <!--=======================================-->
 <!--=====Machine Learning Den Location=====-->
 <!--=======================================-->
 
-
 <div class="transbox">
     <h1 style="padding-left:50px; padding-right: 50px;">Predicting Polar Bear Den Location</h1>
 </div>
 <div style="padding-top:20px; padding-right: 50px; padding-left: 50px">
-<div class="card-deck">
-    <div class="card bg-light mb-3 shadow">
-        <h5 class="card-header">Machine Learning Pipeline Overview</h5>
-        <div class="card-body">
-        <p class="card-text">By applying our k-means clustering we developed a model to use predict location of polar bear dens based on climate metrics. <br>
-            
-            <ol>
-                <li>Import and clean the dataset</li>
-                <li>Split data into training and testing data set (20% testing)</li>
-                <li>Normalize quantitative data using MinMaxScalar</li>
-                <li><b>Multiple Linear Regression:</b> No correlation between climate metrics and den location</li>
-                <li><b>kNN:</b> Range of k values revealed n_neighbors = 5 higher accuracy (score = 0.2)</li>
-                <li><b>Random Forest:</b> Hypertuned random forest score 0.2; used model for prediction </li>
-            </ol>
-        <h5>Machine Learning Retrospective</h5>
-            <hr>
-            <p>The dataset hindered our ability to create a successful model when only assessing climate as a predictor of den & polar bear location. Previous models incorporated the month and year and resulted in a strong random forest model scoring 0.75. Based on app continuity, we chose to exclude month and year from our prediciton but future models should include this critical feature. </p> 
-      </div>
+    <div class="card-deck">
+        <div class="card bg-light mb-3 shadow">
+            <h5 class="card-header">Machine Learning Pipeline Overview</h5>
+            <div class="card-body">
+                <p class="card-text">By applying our k-means clustering we developed a model to use predict location of polar bear dens based on climate metrics. <br>
+                <ol>
+                    <li>Import and clean the dataset</li>
+                    <li>Split data into training and testing data set (20% testing)</li>
+                    <li>Normalize quantitative data using MinMaxScalar</li>
+                    <li><b>Multiple Linear Regression:</b> No correlation between climate metrics and den location</li>
+                    <li><b>kNN:</b> Range of k values revealed n_neighbors = 5 higher accuracy (score = 0.2)</li>
+                    <li><b>Random Forest:</b> Hypertuned random forest score 0.2; used model for prediction </li>
+                </ol>
+                <h5>Machine Learning Retrospective</h5>
+                <hr>
+                    <p>The dataset hindered our ability to create a successful model when only assessing climate as a predictor of den & polar bear location. Previous models incorporated the month and year and resulted in a strong random forest model scoring 0.75. Based on app continuity, we chose to exclude month and year from our prediciton but future models should include this critical feature. </p> 
+            </div>
+        </div>
+        <div class="card bg-light mb-3 shadow" style="padding-bottom:0px;">
+            <h5 class="card-header">Google Colaboratory Notebook</h5>
+            <div class="card-body">
+                <script src="https://gist.github.com/lilstarhunter/950e3952b71bc422debd1a34fa416399.js"></script>
+            </div>
+        </div>
     </div>
-    <div class="card shadow">
-        <script src="https://gist.github.com/lilstarhunter/950e3952b71bc422debd1a34fa416399.js"></script>
-    </div>
-</div>
-</div>
+</div>      
 
