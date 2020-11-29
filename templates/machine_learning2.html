@@ -1,49 +1,29 @@
-<!DOCTYPE html>
+{% extends "layout.html"%}
+{% block title %} 
+Polar Bears Home
+{% endblock %}
+<!-- link to codereb -->
+
+{%block body%}
+<!doctype html>
 <html lang="en">
-<head>
-    <!--REQUIRED METATAGS-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}"> -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Carousel Template · Bootstrap</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    
-</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/"> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> -->
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/style.css" type="text/css" rel="stylesheet">
 
-<body>
-    <!-- Navbar -->
-    <div class="w3-top">
-        <div class="w3-bar w3-white w3-card" id="myNavbar">
-        <a href="{{url_for('index')}}" class="w3-bar-item w3-button w3-wide">POLAR BEARS</a>
-        <!-- navbar links -->
-        <div class="w3-right w3-hide-small">
-            <a href="{{url_for('about')}}" class="w3-bar-item w3-button">ABOUT</a>
-            <a href="{{url_for('machine_learning')}}" class="w3-bar-item w3-button">MACHINE LEARNING</a>
-            <a href="{{url_for('map')}}" class="w3-bar-item w3-button">MAP</a>
-            <a href="{{url_for('graph')}}" class="w3-bar-item w3-button">GRAPH</a>
-            <a href="{{url_for('result')}}" class="w3-bar-item w3-button">RESULT</a>
-            <a href="{{url_for('data')}}" class="w3-bar-item w3-button">DATA</a>
-        </div>
-        <!-- Adjustable right-floated links on small screens-->
-        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-        <i class="fa fa-bars"></i>
-        </a>
-    </div>
-    </div>
-        <!-- sidebar menu links -->
-        <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-            <a href="{{url_for('about')}}" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
-            <a href="{{url_for('machine_learning')}}" onclick="w3_close()" class="w3-bar-item w3-button">MACHINE LEARNING</a>
-            <a href="{{url_for('map')}}" onclick="w3_close()" class="w3-bar-item w3-button">MAP</a>
-            <a href="{{url_for('graph')}}" onclick="w3_close()" class="w3-bar-item w3-button">GRAPH</a>
-            <a href="{{url_for('result')}}" onclick="w3_close()" class="w3-bar-item w3-button">RESULT</a>
-            <a href="{{url_for('data')}}" onclick="w3_close()" class="w3-bar-item w3-button">DATA</a>
-        </nav>
     <style>
         html{  
             -webkit-background-size: cover;
@@ -53,7 +33,7 @@
         }
         body {
             background: rgb(74,99,118);
-            background: linear-gradient(to bottom, rgba(74,99,118) 0%, rgba(201,201,200) 50%, rgba(238,235,220) 100%);
+            background: linear-gradient(to bottom, white 0%,  rgba(74,99,118, 0.8) 100%);
             background-position: center;
             /* background-repeat: no-repeat; */
             background-size: cover;
@@ -65,108 +45,72 @@
             opacity: 0.75;
         }
     </style>
-
-    <br><br><br>
-
-    <!-- DATA SET INFO -->
+    <main role="main">
+<br><br><br>
+    <!-- START THE FEATURETTES -->
     <div class="transbox">
-        <h1 style="padding-left:50px; padding-right: 475px;">Idenitifying Key Data Sets</h1>
+        <h1 style="padding-left:50px; padding-right: 475px;">K-Means to Create Zones</h1>
     </div>
-    <div style="padding:50px">
+    <div style="padding:50px" id=k-means><br>
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Clustering Polar Bear Locations <span class="text-muted"></span></h2>
+        <p class="lead">Temperatures in the arctic circle are warming at a rate 2-3x faster than the rest of the planet. Climate models predict the Arctic will become 7 to 12 degress warming during the next century, resulting in a completely ice-free summer. This dramatic change   Wildlife depends </p>
+      </div>
+      <div class="col-md-5">
+        <img style="width:90%;padding-right:170px;padding-left:250px"src="../static/bear_kmeans_clusters.gif">
 
-        <div class="card-deck">
-            <div class="card shadow">
-                <img class="card-img-top" src="https://www.nasa.gov/images/content/719282main_2008_2012_printdata.1462.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Global Land & Ocean Temperatures</h5>
-                    <p class="card-text">Berkley Earth provides a rich repository of 1.6 billion temperature reports from 16 pre-existing archives. We found a compiled, curated data set on Kaggle for monthly temperatures from Dec 1849 to Dec 2015.</p>
-                </div>
-                <div class="card-footer"><small class="text-muted"><a href="http://berkeleyearth.org/">Data Source: Berkley Earth</a></small>
-                </div>
-            </div>
-            <div class="card shadow">
-                <img class="card-img-top" src="https://www.rcinet.ca/eye-on-the-arctic/wp-content/uploads/sites/30/2019/09/september-arctic-sea-ice-second-lowest-on-record-climate-change-1.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Sea Ice Extent</h5>
-                    <p class="card-text">The National Snow and Ice Data Center uses satellite imagery to measure brightness as a proxy for calculating sea ice concentrations and coverage. For our analysis, we summated daily sea ice extent per month from 1978 to 2019 for the Northern Hemisphere.</p>
-                </div>
-                <div class="card-footer"><small class="text-muted"><a href="https://nsidc.org/data/nsidc-0051">Data Source: NASA NSIDC</a>
-                </small>
-                </div>
-            </div>
-            <div class="card shadow">
-              <img class="card-img-top" src="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fcom.ft.imagepublish.upp-prod-eu.s3.amazonaws.com%2Ff9dd45f8-4c2a-11ea-95a0-43d18ec715f5?fit=scale-down&source=next&width=700" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Global CO2 Emissions</h5>
-                <p class="card-text">Global CO2 Emissions were calculated by summated the CO2 emissions for all recorded countries per month. This data set provided global emissions data from the 1950s to 2020.</p>
-              </div>
-                <div class="card-footer"><small class="text-muted"><a href="https://ourworldindata.org/co2-and-other-greenhouse-gas-emissions">Data Source: Our World in Data</a></small></div>
-              </div>
-        </div>
-        <br>
-        <div class="card-deck">
-        <div class="card shadow">
-            <img class="card-img-top" src="https://www.gannett-cdn.com/-mm-/b2b05a4ab25f4fca0316459e1c7404c537a89702/c=0-0-1365-768/local/-/media/2020/02/21/USATODAY/usatsports/polar-bear-staring-in-water.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Polar Bear Distribution & Habitat</h5>
-                <p class="card-text">From 1985 to 2016, scientists colleced data from over 300 satellite-collared adult female polar bears to track their location and determine habitat selection. Habitat resource selection is a retrospective metric to determine how optimal the habitat selectetd by the polar bears for long-term survival.</p>
-            </div>
-            <div class="card-footer"><small class="text-muted"><a href="https://alaska.usgs.gov/products/data.php?dataid=246">Data Source: Durner et al. 2019, USGS</a></small>
-            </div>
-        </div>
-        <div class="card shadow">
-            <img class="card-img-top" src="https://www.geoex.com/app/uploads/2019/07/ice-bear-explorer-svalbard-polar-bear-leaping.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Polar Bear Mobility</h5>
-                <p class="card-text">The National Snow and Ice Data Center uses satellite imagery to measure brightness as a proxy for calculating sea ice concentrations and coverage. For our analysis, we summated daily sea ice extent per month from 1978 to 2019 for the Northern Hemisphere.</p>
-            </div>
-            <div class="card-footer"><small class="text-muted"><a href="https://alaska.usgs.gov/products/data.php?dataid=27">Data Source: Rode et al. 2020, USGS</a>
-            </small>
-            </div>
-        </div>
-        <div class="card shadow">
-            <img class="card-img-top" src="https://img.peapix.com/a38d6f1967e54a16a2ecbc96f43f0722_480.jpg" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">Maternal Denning</h5>
-            <p class="card-text">The approximate location of maternal dens from 530 polar bears was recording from 1910 to 2018. Researchers recorded the substrate each den occured on (ice or land), whether the den was active at time of recording, and the year cubs were born.</p>
-            </div>
-            <div class="card-footer"><small class="text-muted"><a href="https://alaska.usgs.gov/products/data.php?dataid=269">Data Source: Durner et al. 2020, USGS</a></small></div>
-            </div>
-        </div>
-        </div>
-
-    <!-- CREATING THE DATABASE AND CLEANING-->
-    <div class="transbox">
-    <h1 style="padding-left:50px; padding-right: 475px;">Creating the Database</h1>
+      </div>
     </div>
- 
-        <div style="padding:50px" id=colab1>
-            <script src="https://gist.github.com/lilstarhunter/358ed454c43361c6cee5ead3b23eccea.js"></script>
-        </div>
-        <div class="transbox">
-            <h1 style="padding-left:50px">Explore the Data</h1>
-        </div>
-        <div style="padding:50px" id=colab2>
-            <span>Choose a Table</span>
-            <div class="data">
-                <select id="selDataset"></select>
-            </div>
-            <br><br><br>
-            <div>
-                <table class= "table table-striped">
-                    <thead></thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-        </div>
 
-<!-- SCRIPTS: jQuery and Bootstrap Bundle (includes Popper) -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-<script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>    -->
+    <hr class="featurette-divider">
 
-</body>
-</html>
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Climate change threatens polar bears. <span class="text-muted">Their home is melting away.</span></h2>
+        <p class="lead">The disappearance of sea ice is a particularly dire threat to the polar bear.  Polar bears rely on the ice to hunt seals, their main food source, and also to rest between hunts out on the ice. Trapped, drowning and starving bears are a major concern. In September 2007, the U.S. Geological Survey (USGS) released a series of studies concluding that “future reduction of sea ice in the Arctic could result in a loss of two-thirds of the world’s polar bear population within 50 years.”</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img src="https://miro.medium.com/max/4394/1*KZVUgBl6iEsbnYURTOD14g.jpeg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><text x="50%" y="50%" fill="#aaa" dy=".1em">Kimberly M. Aquilina</text></svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Racing to save the polar bears. <span class="text-muted">Arctic research is critical. </span></h2>
+        <p class="lead">Research on polar bear health and abundance is critical to understanding how the animals are responding to declining sea ice in the warming Arctic. More open water and thinning ice makes it difficult to detect polar bears by helicoptor or satellite and poses a threat to investigators and polar bears while attempting to collect information.  These challenges mean they’re sampling fewer bears, and that will affect the conclusions they can draw from their research. </p>
+      </div>
+      <div class="col-md-5">
+        <img src="https://polarbearscience.files.wordpress.com/2013/11/polar_bear_biologist_usfws_working_with_a_bear_in-fall-amstrup-photo_lg.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><text x="50%" y="50%" fill="#aaa" dy=".3em"><a href="https://www.flickr.com/photos/usfws_alaska/5165219694/in/photostream/">US Fish and Wildlife Services</a></text></svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+
+
+<img style="width:90%;padding-right:170px;padding-left:250px"src="../static/bear_kmeans_clusters.gif">
+</div>
+<div class="transbox">
+    <h1 style="padding-left:50px">Operation Polarbear</h1>
+</div>
+<div style="padding:50px" id=colab1>
+    <script src="https://gist.github.com/CodeReber/36410a7c8405140bebda520045a501a7.js"></script>
+</div>
+<div class="transbox">
+    <h1 style="padding-left:50px">Den Machine Learning</h1>
+</div>
+<div style="padding:50px" id=colab2>
+<script src="https://gist.github.com/CodeReber/5f83388566e151d3af6675addd12df94.js"></script>
+</div>
+<div class="transbox">
+    <h1 style="padding-left:50px">Den Location</h1>
+</div>
+<div style="padding:50px" id=colab3>
+<script src="https://gist.github.com/CodeReber/2f06a3018caffb21a4b812d63acc6ed2.js"></script>
+</div>
+{%endblock %}

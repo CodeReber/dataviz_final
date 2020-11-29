@@ -76,6 +76,10 @@ def about():
 def test():
     return render_template('machine_learning2.html')
 
+@app.route('/testing2')
+def test2():
+    return render_template('data2.html')
+
 @app.route('/machine_learning')
 def machine_learning():
     return render_template('machine_learning.html')
