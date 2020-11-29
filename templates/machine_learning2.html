@@ -45,9 +45,17 @@
             <a href="{{url_for('data')}}" onclick="w3_close()" class="w3-bar-item w3-button">DATA</a>
         </nav>
     <style>
+        html{  
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
         body {
-            background-image: url("../Images/background.jpg");
+            background: rgb(74,99,118);
+            background: linear-gradient(to bottom, rgba(74,99,118) 0%, rgba(201,201,200) 50%, rgba(238,235,220) 100%);
             background-position: center;
+            /* background-repeat: no-repeat; */
             background-size: cover;
             min-height: 100%;
         }
@@ -67,7 +75,7 @@
     <div style="padding:50px">
 
         <div class="card-deck">
-            <div class="card">
+            <div class="card shadow">
                 <img class="card-img-top" src="https://www.nasa.gov/images/content/719282main_2008_2012_printdata.1462.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Global Land & Ocean Temperatures</h5>
@@ -76,7 +84,7 @@
                 <div class="card-footer"><small class="text-muted"><a href="http://berkeleyearth.org/">Data Source: Berkley Earth</a></small>
                 </div>
             </div>
-            <div class="card">
+            <div class="card shadow">
                 <img class="card-img-top" src="https://www.rcinet.ca/eye-on-the-arctic/wp-content/uploads/sites/30/2019/09/september-arctic-sea-ice-second-lowest-on-record-climate-change-1.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Sea Ice Extent</h5>
@@ -86,7 +94,7 @@
                 </small>
                 </div>
             </div>
-            <div class="card">
+            <div class="card shadow">
               <img class="card-img-top" src="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fcom.ft.imagepublish.upp-prod-eu.s3.amazonaws.com%2Ff9dd45f8-4c2a-11ea-95a0-43d18ec715f5?fit=scale-down&source=next&width=700" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">Global CO2 Emissions</h5>
@@ -97,16 +105,16 @@
         </div>
         <br>
         <div class="card-deck">
-        <div class="card">
+        <div class="card shadow">
             <img class="card-img-top" src="https://www.gannett-cdn.com/-mm-/b2b05a4ab25f4fca0316459e1c7404c537a89702/c=0-0-1365-768/local/-/media/2020/02/21/USATODAY/usatsports/polar-bear-staring-in-water.jpg" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Polar Bear Distribution & Habitat</h5>
-                <p class="card-text">From 1985 to 2016, scientists colleced data from over 300 satellite-collared adult female polar bears to track their location and determine habitat selection. Habitat resource selection is a retrospective metric to determine how optimal the habitat selectetd by the polar bears for long-term survival. This data informs how the polar bears are responding to losses of optimal habitat and resources.</p>
+                <p class="card-text">From 1985 to 2016, scientists colleced data from over 300 satellite-collared adult female polar bears to track their location and determine habitat selection. Habitat resource selection is a retrospective metric to determine how optimal the habitat selectetd by the polar bears for long-term survival.</p>
             </div>
             <div class="card-footer"><small class="text-muted"><a href="https://alaska.usgs.gov/products/data.php?dataid=246">Data Source: Durner et al. 2019, USGS</a></small>
             </div>
         </div>
-        <div class="card">
+        <div class="card shadow">
             <img class="card-img-top" src="https://www.geoex.com/app/uploads/2019/07/ice-bear-explorer-svalbard-polar-bear-leaping.jpg" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Polar Bear Mobility</h5>
@@ -116,7 +124,7 @@
             </small>
             </div>
         </div>
-        <div class="card">
+        <div class="card shadow">
             <img class="card-img-top" src="https://img.peapix.com/a38d6f1967e54a16a2ecbc96f43f0722_480.jpg" alt="Card image cap">
             <div class="card-body">
             <h5 class="card-title">Maternal Denning</h5>
@@ -127,8 +135,30 @@
         </div>
         </div>
 
-          <!-- DATA SET INFO -->
-
+    <!-- CREATING THE DATABASE AND CLEANING-->
+    <div class="transbox">
+    <h1 style="padding-left:50px; padding-right: 475px;">Creating the Database</h1>
+    </div>
+ 
+        <div style="padding:50px" id=colab1>
+            <script src="https://gist.github.com/lilstarhunter/358ed454c43361c6cee5ead3b23eccea.js"></script>
+        </div>
+        <div class="transbox">
+            <h1 style="padding-left:50px">Explore the Data</h1>
+        </div>
+        <div style="padding:50px" id=colab2>
+            <span>Choose a Table</span>
+            <div class="data">
+                <select id="selDataset"></select>
+            </div>
+            <br><br><br>
+            <div>
+                <table class= "table table-striped">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
 
 <!-- SCRIPTS: jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

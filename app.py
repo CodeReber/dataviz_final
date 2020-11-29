@@ -72,6 +72,10 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/testing')
+def test():
+    return render_template('machine_learning2.html')
+
 @app.route('/machine_learning')
 def machine_learning():
     return render_template('machine_learning.html')
