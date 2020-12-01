@@ -193,8 +193,8 @@ def predict():
     dens_model = pickle.load(open("machine_learning/models/rf_loc.pkl","rb"))
 
     temp = round(float(request.form['tempRange'])*19+1)
-    ocean = round(float(request.form['oceanRange'])*200+300)
-    co2 = round(float(request.form['co2Range'])*19+1) 
+    ocean = round(float(request.form['oceanRange'])*19+1)
+    co2 = round(float(request.form['co2Range'])*200+300)
     ice = round(float(request.form['iceRange'])*19+1)
 
     
