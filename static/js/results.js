@@ -13,14 +13,14 @@ tempRange.on("change", ()=>{
 });
 
 oceanRange.on("change", ()=>{
-    oceanspan.text(Math.round((parseFloat(oceanRange.property('value'))*200+300))) 
+    oceanspan.text(Math.round((parseFloat(oceanRange.property('value'))*19+1))) 
 });
 co2Range.on("change", ()=>{
-    co2span.text(Math.round(parseFloat(co2Range.property('value'))*19+1)) 
+    co2span.text(Math.round(parseFloat(co2Range.property('value'))*200+300)) 
 });
 iceRange.on("change", ()=>{
     icespan.text(Math.round(parseFloat(iceRange.property('value'))*19+1)) 
 });
 
-$(function () { objectFitImages() });
+
 

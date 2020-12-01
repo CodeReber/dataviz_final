@@ -92,12 +92,12 @@ div.transbox {
         <div class="slidecontainer">
           <div class="card-header"><b>Ocean Temperature:</b></div>
             <input type="range" min="0" max="1" step=".01" class="slider" id="oceanRange" name="oceanRange">
-            <p class="sliderValue" id="oceanspan">400</p>
+            <p class="sliderValue" id="oceanspan">10</p>
         </div>
         <div class="slidecontainer">
           <div class="card-header"><b>Global CO2 Emissions:</b></div>
             <input type="range" min="0" max="1" step=".01" class="slider" id="co2Range" name="co2Range">
-            <p class="sliderValue" id="co2span">10</p>
+            <p class="sliderValue" id="co2span">400</p>
         </div>
         <div class="slidecontainer">
           <div class="card-header"><b>Sea Ice Extent:</b></div>
@@ -134,7 +134,10 @@ div.transbox {
       </div>
       <div class="card-footer">
         <span ><b>Your Selected Values:</b></span><br>
-        <span>Land Temperature: {{temp}}</span>    <span class="selection">Ocean Temperature: {{ocean}}</span>    <span class="selection">Global CO2 Emissions: {{co2}}</span>       <span class="selection">Sea Ice Extent: {{ice}}</span>
+        <span class="selection">Land Temperature: {{temp}}</span>    
+        <span class="selection">Ocean Temperature: {{ocean}}</span>    
+        <span class="selection">Global CO2 Emissions: {{co2}}</span>       
+        <span class="selection">Sea Ice Extent: {{ice}}</span>
       </div>
     </div>
   </form>
