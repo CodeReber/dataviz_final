@@ -55,12 +55,12 @@ th{
 </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
-    <div style="padding-top:100px;padding-left:250px"><br><br>
+    <div id="result" style="padding-top:100px;padding-left:250px"><br><br>
     <span class="w3-jumbo w3-hide-small">Predict</span>
     <span class="w3-xxlarge w3-hide-large w3-hide-medium">Predict</span><br>
     <span class="w3-xlarge">Enter the following values to predict ...</span>
     
-    <div style="padding-left:0px; padding-right:250px;">
+    <div id="predict" style="padding-left:0px; padding-right:250px;">
      <form method="POST" action="{{url_for('predict')}}" role="form">
         <div class="slidecontainer">
             <p>Land Temperature:</p>
@@ -85,8 +85,12 @@ th{
         <button type="submit" id="predict" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity:0.2  w3-hover-opacity-off">Predict Now</button>
      </form> 
      <br><br><br>
-    <span>Your Selected Values</span><br>
-    <span>Land Temperature: {{temp}}    Ocean Temperature: {{ocean}}    Global CO2 Emissions: {{co2}}   Sea Ice Extent: {{ice}}</span><br><br>
+    <div class="selectedbox">
+        <span >Your Selected Values:</span><br>
+        <span>Land Temperature: {{temp}}</span>    <span class="selection">Ocean Temperature: {{ocean}}</span>    <span class="selection">Global CO2 Emissions: {{co2}}</span>   <span class="selection">Sea Ice Extent: {{ice}}</span>
+      </div>
+    
+    <br><br>
 
     <div class=row>
     <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
@@ -116,4 +120,6 @@ th{
   </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script src="{{ url_for('static', filename='js/results.js') }}"></script>
+  
+  
 {%endblock %}

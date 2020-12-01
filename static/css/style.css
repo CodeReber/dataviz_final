@@ -5,6 +5,7 @@
 /* about & application */
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
+
 body, html {
     height: 100%;
     line-height: 1.8;
@@ -20,6 +21,7 @@ body, html {
     background-size: cover;
     background-image: url("https://s1.1zoom.me/b5050/321/Bears_Polar_bears_Cubs_Three_3_Ice_Glance_525409_3840x2400.jpg");
     min-height: 100%;
+    margin:0%;
 }
 
 /* Set a style for all buttons */
@@ -45,14 +47,130 @@ button:hover {
     }
 
 
+
 /* Change styles for span and sign up button on extra small screens */
 @media screen and (max-width: 300px) {
-span.psw {
-        display: block;
-        float: none;
-    }
-    
+  span.psw {
+    display: block;
+    float: none;
   }
+   
+
+}
+
+.means{
+  padding-left:150px; 
+  padding-right: 150px
+}
+.tab{
+  padding:80px
+}
+/* .predict{
+  padding-left:0px;
+  padding-right:250px;
+}
+.result{
+  padding-top:100px;
+  padding-left:250px
+} */
+
+/* Predict/Results */
+
+.resultsBody {
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://images.dailyhive.com/20191206124544/shutterstock_104815631.jpg");
+  min-height: 100%;
+}
+
+.tableData{
+text-align: center;
+}
+
+.slidecontainer {
+width: 80%;
+}
+
+.sliderbutton {
+  width: 80%;
+  margin-right: 150px;
+}
+
+.slider {
+-webkit-appearance: none;
+width: 100%;
+height: 25px;
+background: #d3d3d3;
+outline: none;
+opacity: 1;
+-webkit-transition: .2s;
+transition: opacity .2s;
+}
+.slider:hover {
+opacity: 1;
+}
+
+.sliderValue{
+  text-align: center;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:larger;
+}
+.slider::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 25px;
+height: 25px;
+background: rgb(16, 111, 134);
+cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+width: 25px;
+height: 25px;
+background: #4CAF50;
+cursor: pointer;
+}
+
+.selection{
+  padding-left:25px;
+}
+.selectedbox {
+  background-color: rgb(255, 255, 255);
+  opacity: .75;
+  padding-left: 5px;
+  margin-right: 225px;
+}
+@media screen and (max-width: 375px){
+
+  h1.smallscreenfont{
+    font-size: 1.5rem;
+  }
+
+  header.bgimg-1 {
+    width: 500px;
+    height: 1700px;
+   
+  } 
+  
+  .means{
+    padding-left:45px; 
+    padding-right: 45px;
+  }
+
+  .tab{
+    padding:5px;
+    height:auto;
+  }
+  .predict{
+    padding-right: 0px;
+  }
+
+  .result{
+    padding-right: 25px;
+  }
+}
+
 
     .slidecontainer {
         width: 100%;
@@ -89,11 +207,13 @@ span.psw {
   /* Carousel base class */
   .carousel {
     margin-bottom: 4rem;
+    margin-top:60px;
+    z-index: 0;
   }
   /* Since positioning the image, we need to help out the caption */
   .carousel-caption {
     bottom: 3rem;
-    z-index: 10;
+    /* z-index: 10; */
     text-shadow: 2px 2px black;
     color: white
   }
@@ -154,9 +274,11 @@ span.psw {
     /* Bump up size of carousel content */
     .carousel-caption p {
       margin-bottom: 1.25rem;
-      font-size: 1.25rem;
+      font-size: 1.25 rem;
       line-height: 1.4;
     }
+
+    
   
     .featurette-heading {
       font-size: 50px;
