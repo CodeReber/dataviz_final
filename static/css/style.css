@@ -26,7 +26,7 @@ body, html {
 
 /* Set a style for all buttons */
 button {
-    background-color: rgb(240, 239, 215);
+    background-color: rgb(211,211,211);
     color: rgb(14, 1, 1);
     padding: 14px 20px;
     margin: 8px 0;
@@ -54,7 +54,6 @@ button:hover {
     display: block;
     float: none;
   }
-   
 
 }
 
@@ -65,14 +64,14 @@ button:hover {
 .tab{
   padding:80px
 }
-/* .predict{
+.predict{
   padding-left:0px;
   padding-right:250px;
 }
 .result{
   padding-top:100px;
   padding-left:250px
-} */
+}
 
 /* Predict/Results */
 
@@ -91,10 +90,10 @@ text-align: center;
 width: 80%;
 }
 
-.sliderbutton {
+/* .sliderbutton {
   width: 80%;
   margin-right: 150px;
-}
+} */
 
 .slider {
 -webkit-appearance: none;
@@ -278,8 +277,7 @@ cursor: pointer;
       line-height: 1.4;
     }
 
-    
-  
+
     .featurette-heading {
       font-size: 50px;
     }

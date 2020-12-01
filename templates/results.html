@@ -16,12 +16,13 @@ Machine Learning Page
 <!-- Bootstrap core CSS -->
 <link href="../static/css/style.css" type="text/css" rel="stylesheet">
 <style>
-    body {
-    background-position: center;
-    background-size: cover;
-    background-image: url("https://images.dailyhive.com/20191206124544/shutterstock_104815631.jpg");
-    min-height: 100%;
-}
+body {
+            background: rgba(74,99,118,100%);
+            background-position: center;
+            background-repeat: repeat;
+            background-size: cover;
+            height: 100%;
+          }
 
 td{
   text-align: center;
@@ -30,9 +31,6 @@ th{
   text-align: center;
 }
 
-.slidecontainer {
-  width: 80%;
-}
 
 .slider {
   -webkit-appearance: none;
@@ -63,76 +61,86 @@ th{
   background:  rgb(16, 111, 134);
   cursor: pointer;
 }
+div.transbox {
+    background-color: rgb(255, 255, 255);
+    margin: 0%;
+    opacity: 0.75;
+}
 </style>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
-    <div id="result" style="padding-top:100px;padding-left:250px"><br><br>
-      <div class="transbox">
-        <span class="w3-jumbo w3-hide-small">Predict</span><br> 
-       </div>
-       <span class="w3-xxlarge w3-hide-large w3-hide-medium">Predict</span>     
-       <span class="w3-xlarge">Enter the following values to predict ...</span>
-    
-    <div id="predict" style="padding-left:0px; padding-right:250px;">
-      <form method="POST" action="{{url_for('predict')}}" role="form">
+<!--==========================================-->
+<!--============ Predict Jumbotron ===========-->
+<!--==========================================-->
+<br><br><br>
+<div class="transbox">
+    <h1 style="padding-left:50px; padding-right: 50px;">Polar Bear Predictions</h1>
+    <!-- <p class="lead" style="padding-left:50px; padding-right: 50px;">Adjust the sliders below to explore how the climate impacts polar bear behavior! </p> -->
+</div>
+
+<!--===========================================-->
+<!--=============   SLIDER CARD ===============-->
+<!--===========================================-->
+<div id="predict" style="padding-left:50px; padding-right: 50px; padding-bottom: 50px;">
+  <form method="POST" action="{{url_for('predict')}}" role="form">
+  <div class="card-deck">
+
+      <div class="card bg-light shadow">
         <div class="slidecontainer">
-            <p>Land Temperature:</p>
+          <div class="card-header"><b>Land Temperature:</b></div>
             <input type="range" min="0" max="1" step=".01" class="slider" id="tempRange" name="tempRange">
             <p  class="sliderValue" id="tempspan">10</p>
         </div>
         <div class="slidecontainer">
-            <p>Ocean Temperature:</p>
+          <div class="card-header"><b>Ocean Temperature:</b></div>
             <input type="range" min="0" max="1" step=".01" class="slider" id="oceanRange" name="oceanRange">
             <p class="sliderValue" id="oceanspan">400</p>
         </div>
         <div class="slidecontainer">
-            <p>Global CO2 Emissions:</p>
+          <div class="card-header"><b>Global CO2 Emissions:</b></div>
             <input type="range" min="0" max="1" step=".01" class="slider" id="co2Range" name="co2Range">
             <p class="sliderValue" id="co2span">10</p>
         </div>
         <div class="slidecontainer">
-            <p>Sea Ice Extent:</p>
+          <div class="card-header"><b>Sea Ice Extent:</b></div>
             <input type="range" min="0" max="1" step=".01" class="slider" id="iceRange" name="iceRange">
             <p class="sliderValue" id="icespan">10</p>
-        </div>
-        <div class="sliderbutton"><button type="submit" id="predict" class=" w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity:0.2  w3-hover-opacity-off">Predict Now</button></div>
-    </form>
-     <br><br><br>
-    <div class="selectedbox">
-        <span >Your Selected Values:</span><br>
-        <span>Land Temperature: {{temp}}</span>    <span class="selection">Ocean Temperature: {{ocean}}</span>    <span class="selection">Global CO2 Emissions: {{co2}}</span>   <span class="selection">Sea Ice Extent: {{ice}}</span>
+        <div class="card-body text-center">
+        <button type="submit" id="predict"><b>Predict Now</b></button>
+      </div>
+      </div>
     </div>
-    
-    <br><br>
+<!--===========================================-->
+<!--=========== PREDICTION CARD ===============-->
+<!--===========     RESULTS     ===============-->
+<!--===========    ZONE IMAGE   ===============-->
+<!--===========================================-->
 
-    <div class=row>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+<!-- <div id="predict" style="padding-left:50px; padding-right:50px"> -->
+
+    <div class="card bg-light shadow">
+      <div class="card-header text-center"><b>Predictions</b>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped">
+          <tr><th>Habitat</th>
+          <th>Mobility</th>
+          <tr><td>{{habitat_output}}</td>
+          <td>{{mobility_output}}</td></tr>
+        </table>
       <table class="table table-striped">
-        <tr><th>Habitat</th></tr>
-        <tr><td>{{habitat_output}}</td></tr>
-      </table>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-      <table  class="table table-striped">
-        <tr><th>Mobility</th></tr>
-        <tr><td>{{mobility_output}}</td></tr>
-      </table>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-      <table  class="table table-striped">
         <tr><th>Den Location</th></tr>
         <tr><td>{{dens_output}}</td></tr>
       </table>
-    </div></div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-        <img style="width:90%;padding-right:170px;padding-left:250px"src="../static/pb_zones.jpg">
+      <img class="card-mg-bottom" style="width:100%"src="../static/pb_zones.jpg">
       </div>
-  </div>
-  </div>
+      <div class="card-footer">
+        <span ><b>Your Selected Values:</b></span><br>
+        <span>Land Temperature: {{temp}}</span>    <span class="selection">Ocean Temperature: {{ocean}}</span>    <span class="selection">Global CO2 Emissions: {{co2}}</span>       <span class="selection">Sea Ice Extent: {{ice}}</span>
+      </div>
+    </div>
+  </form>
+</div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script src="{{ url_for('static', filename='js/results.js') }}"></script>
-  
   
 {%endblock %}

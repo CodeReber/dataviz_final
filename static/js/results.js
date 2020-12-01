@@ -22,5 +22,5 @@ iceRange.on("change", ()=>{
     icespan.text(Math.round(parseFloat(iceRange.property('value'))*19+1)) 
 });
 
-
+$(function () { objectFitImages() });
 
