@@ -56,39 +56,41 @@ th{
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
     <div id="result" style="padding-top:100px;padding-left:250px"><br><br>
-    <span class="w3-jumbo w3-hide-small">Predict</span>
-    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Predict</span><br>
-    <span class="w3-xlarge">Enter the following values to predict ...</span>
+      <div class="transbox">
+        <span class="w3-jumbo w3-hide-small">Predict</span><br> 
+       </div>
+       <span class="w3-xxlarge w3-hide-large w3-hide-medium">Predict</span>     
+       <span class="w3-xlarge">Enter the following values to predict ...</span>
     
     <div id="predict" style="padding-left:0px; padding-right:250px;">
-     <form method="POST" action="{{url_for('predict')}}" role="form">
+      <form method="POST" action="{{url_for('predict')}}" role="form">
         <div class="slidecontainer">
             <p>Land Temperature:</p>
             <input type="range" min="0" max="1" step=".01" class="slider" id="tempRange" name="tempRange">
-            <span id="tempspan">10</span>
+            <p  class="sliderValue" id="tempspan">10</p>
         </div>
         <div class="slidecontainer">
             <p>Ocean Temperature:</p>
             <input type="range" min="0" max="1" step=".01" class="slider" id="oceanRange" name="oceanRange">
-            <span id="oceanspan">400</span>
+            <p class="sliderValue" id="oceanspan">400</p>
         </div>
         <div class="slidecontainer">
             <p>Global CO2 Emissions:</p>
             <input type="range" min="0" max="1" step=".01" class="slider" id="co2Range" name="co2Range">
-            <span id="co2span">10</span>
+            <p class="sliderValue" id="co2span">10</p>
         </div>
         <div class="slidecontainer">
             <p>Sea Ice Extent:</p>
             <input type="range" min="0" max="1" step=".01" class="slider" id="iceRange" name="iceRange">
-            <span id="icespan">10</span>
+            <p class="sliderValue" id="icespan">10</p>
         </div>
-        <button type="submit" id="predict" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity:0.2  w3-hover-opacity-off">Predict Now</button>
-     </form> 
+        <div class="sliderbutton"><button type="submit" id="predict" class=" w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity:0.2  w3-hover-opacity-off">Predict Now</button></div>
+    </form>
      <br><br><br>
     <div class="selectedbox">
         <span >Your Selected Values:</span><br>
         <span>Land Temperature: {{temp}}</span>    <span class="selection">Ocean Temperature: {{ocean}}</span>    <span class="selection">Global CO2 Emissions: {{co2}}</span>   <span class="selection">Sea Ice Extent: {{ice}}</span>
-      </div>
+    </div>
     
     <br><br>
 
